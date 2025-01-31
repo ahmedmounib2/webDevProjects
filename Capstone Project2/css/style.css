@@ -1,0 +1,135 @@
+body {
+    font-family: 'Red Hat Display', sans-serif;
+    text-align: center;
+    display: block;
+    background-color: #F6F7C4;
+}
+
+.nav-bar {
+    background-color: #003C43;
+    padding: 1rem;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+}
+
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+    color: #77B0AA;
+}
+
+p {
+    margin: 0.5rem 0;
+    line-height: 2;
+}
+
+
+.top-container{
+    background-color:#7BD3EA;
+    padding: 50px 0 0;  
+    position: relative;
+}
+.dancing-script-<uniquifier> {
+    font-family: "Dancing Script", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+.title-text{
+    
+    font-family: "Dancing Script", serif;
+    
+    font-weight: bold;
+    text-align: center;
+    font-size: 5rem;
+    margin: 50px;
+
+
+}
+.title-text2{
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+
+h2{
+    margin-bottom: 100px;
+}
+.title-img{
+    text-align: center;
+    height: 300px;
+    
+}
+.cloud-img{
+    height: 100px;
+    position: absolute;
+    right: 250px;
+    bottom: 300px;
+   
+}
+.cloud2{
+    height: 100px;
+    position: absolute;
+    left: 250px;
+    bottom: 300px;
+    
+}
+.cloud3{
+    height: 50px;
+    position: absolute;
+    right: 122px;
+    bottom: 290px;
+}
+
+#my-img{
+    margin-top: 100px;
+    max-height: 200px;
+    border-radius: 50%;
+}
+
+h3 {
+    margin-top: 20px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.projects div {
+    margin-top: 1rem;
+}
+
+hr {
+    border: dotted #77B0AA 6px;
+    border-bottom: none;
+    width: 4%;
+    margin: 100px auto;
+}
+#footer{
+    background-color: #003C43;
+    color: white;
+    padding: 50px 0 20px;
+    margin-top: 50px;
+
+}
+.contact{
+    padding-bottom: 50px;
+}
+li{
+    line-height: 2;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}

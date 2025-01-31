@@ -1,0 +1,116 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container py-5">
+  <!-- Main Content Area -->
+  <section class="postForm mb-5">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+      <div class="col-lg-6 px-0">
+        <h1 class="display-4 fst-italic">Submit a blog</h1>
+        <form action="/submit" method="post">
+          <!-- Topic Input -->
+          <div class="mb-3">
+            <label for="topicTitle" class="form-label">Topic</label>
+            <input
+              type="text"
+              class="form-control"
+              id="topicTitle"
+              required
+              name="topicTitleInput"
+              placeholder="Topic title..."
+            />
+          </div>
+
+          <!-- Textarea Input -->
+          <div class="mb-3">
+            <label for="formText" class="form-label">Topic message</label>
+            <textarea
+              class="form-control auto-resize"
+              id="formText"
+              rows="5"
+              required
+              name="topicPost"
+              placeholder="Write your topic here..."
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary">Submit Blog</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Post Listing -->
+  <section class="postBody">
+    <div class="row g-5">
+      <!-- Main Posts Section -->
+      <div class="col-md-8">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">Recent blogs</h3>
+
+        <% allPosts.forEach((post, index) => { %>
+        <article class="blog-post mb-4">
+          <div class="d-flex justify-content-between align-items-center">
+            <a href="/edit/<%= index %>" class="edit-button">
+              <img src="images/pencil-square.svg" alt="edit-post" />
+            </a>
+
+            <form
+              action="/delete/<%= index %>"
+              method="POST"
+              class="delete-button"
+            >
+              <button type="submit" class="btn btn-danger btn-sm">
+                Delete
+              </button>
+            </form>
+          </div>
+
+          <h2 class="display-5 link-body-emphasis mb-1"><%= post.title1 %></h2>
+          <p class="blog-post-meta">
+            <%= post.date1 %> by <a href="#">Author</a>
+          </p>
+          <p><%= post.post1 %></p>
+          <hr />
+        </article>
+        <% }); %>
+
+        <!-- Pagination -->
+        <nav class="blog-pagination" aria-label="Pagination">
+          <a class="btn btn-outline-primary rounded-pill" href="#">Older</a>
+          <a
+            class="btn btn-outline-secondary rounded-pill disabled"
+            aria-disabled="true"
+            >Newer</a
+          >
+        </nav>
+      </div>
+
+      <!-- Sidebar for About and Recent Posts -->
+      <div class="col-md-4">
+        <div class="position-sticky" style="top: 2rem">
+          <div class="p-4 mb-3 bg-body-tertiary rounded">
+            <h4 class="fst-italic">About</h4>
+            <p class="mb-0">
+              Customize this section to tell your visitors a little bit about
+              your publication, writers, content, or something else entirely.
+            </p>
+          </div>
+          <div>
+            <h4 class="fst-italic">Recent Blogs</h4>
+            <ul class="list-unstyled">
+              <li><a href="#">Example blog post title</a></li>
+              <li><a href="#">This is another blog post title</a></li>
+              <li>
+                <a href="#"
+                  >Longer blog post title: This one has multiple lines!</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include("partials/footer.ejs") %>

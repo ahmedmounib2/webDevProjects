@@ -1,0 +1,145 @@
+<%- include("partials/header") %>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <!-- Main Content Area (Integrated design) -->
+    <div class="col-md-10 col-lg-8">
+      <h1 class="mb-4 text-center text-primary">Edit Post</h1>
+
+      <!-- Form for Editing Post -->
+      <form
+        action="/update/<%= index %>"
+        method="POST"
+        class="shadow-lg p-5 rounded bg-light border-0"
+      >
+        <div class="mb-4">
+          <label for="editTitle" class="form-label fs-4">Title:</label>
+          <input
+            type="text"
+            id="editTitle"
+            name="editTitle"
+            class="form-control form-control-lg shadow-sm"
+            value="<%= post.title1 %>"
+            required
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="editContent" class="form-label fs-4">Content:</label>
+          <textarea
+            id="editContent"
+            name="editContent"
+            class="form-control form-control-lg auto-resize shadow-sm"
+            rows="5"
+            required
+          >
+            <%= post.post1 %>
+          </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">
+          Update Post
+        </button>
+      </form>
+
+      <!-- Dynamic Content Below the Form -->
+      <div class="mt-5">
+        <!-- About Section with Gradient Background -->
+        <div
+          class="card border-0 shadow-sm mb-4"
+          style="background: linear-gradient(to right, #f8f9fa, #f1f3f5)"
+        >
+          <div class="card-body">
+            <h4 class="card-title text-primary">
+              <i class="bi bi-info-circle"></i> About
+            </h4>
+            <p class="card-text text-muted">
+              Customize this section to tell your visitors a little bit about
+              your publication, writers, or content.
+            </p>
+          </div>
+        </div>
+
+        <!-- Recent Posts with Modern Layout and Hover Effects -->
+        <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body">
+            <h4 class="card-title text-primary">
+              <i class="bi bi-clock"></i> Recent Posts
+            </h4>
+            <div class="d-flex flex-column">
+              <!-- Post 1 -->
+              <div class="d-flex align-items-start mb-4 card-hover">
+                <img
+                  src="https://via.placeholder.com/96"
+                  alt="Thumbnail"
+                  class="me-3 rounded"
+                />
+                <div>
+                  <h6 class="fw-bold mb-2">Example Blog Post</h6>
+                  <small class="text-muted">January 15, 2024</small>
+                </div>
+              </div>
+
+              <!-- Post 2 -->
+              <div class="d-flex align-items-start mb-4 card-hover">
+                <img
+                  src="https://via.placeholder.com/96"
+                  alt="Thumbnail"
+                  class="me-3 rounded"
+                />
+                <div>
+                  <h6 class="fw-bold mb-2">Another Blog Post</h6>
+                  <small class="text-muted">January 14, 2024</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Archives Section with Slick Design -->
+        <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body">
+            <h4 class="card-title text-primary">
+              <i class="bi bi-archive"></i> Archives
+            </h4>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-decoration-none text-secondary"
+                  >March 2021</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-secondary"
+                  >February 2021</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Elsewhere Section with Smooth Transitions -->
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title text-primary">
+              <i class="bi bi-share"></i> Elsewhere
+            </h4>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-decoration-none text-secondary"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-secondary"
+                  >Twitter</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

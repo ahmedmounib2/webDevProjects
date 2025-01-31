@@ -1,0 +1,82 @@
+</main>
+<footer>
+  <div class="b-example-divider"></div>
+  <div class="container">
+    <footer class="py-5">
+      <div class="row">
+        <!-- Section 1 -->
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Products</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          </ul>
+        </div>
+        <!-- Section 2 -->
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Resources</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Support</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+          </ul>
+        </div>
+        <!-- Section 3 -->
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Company</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About Us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Careers</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter Section -->
+        <div class="col-md-5 offset-md-1 mb-3">
+          <form>
+            <h5>Subscribe to our newsletter</h5>
+            <p>Monthly digest of what's new and exciting from us.</p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter" class="visually-hidden">Email address</label>
+              <input id="newsletter" type="email" class="form-control" placeholder="Email address" required>
+              <button class="btn btn-primary" type="submit">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Footer Bottom -->
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p>© 2024 Company, Inc. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+</footer>
+
+<!-- Bootstrap JS Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+  // Function to resize the textarea based on content
+  function resizeTextarea(textarea) {
+    textarea.style.height = 'auto'; // Reset height to auto to shrink if needed
+    textarea.style.height = textarea.scrollHeight + 'px'; // Adjust the height to fit the content
+  }
+
+  document.addEventListener('input', function (event) {
+    // Check if the target is a textarea with the class 'auto-resize'
+    if (event.target.tagName.toLowerCase() === 'textarea' && event.target.classList.contains('auto-resize')) {
+      resizeTextarea(event.target); // Resize the textarea on input
+    }
+  });
+
+  // Resize all textareas on page load to fit content
+  window.addEventListener('load', function () {
+    const textareas = document.querySelectorAll('.auto-resize');
+    textareas.forEach(resizeTextarea); // Apply the resize function to all textareas on page load
+  });
+</script>
