@@ -3,7 +3,6 @@
 <div class="box">
   <% for(let book of books){ %>
   <div class="item">
-    <%# delete form %>
     <form action="/delete-book" method="post">
       <input
         type="checkbox"
@@ -14,7 +13,6 @@
       />
     </form>
 
-    <%# Display Books %>
     <p id="title<%= book.id %>"><%= book.title %></p>
     <p>Review: <%= book.review %>/10</p>
     <p><%= book.review_text %></p>
@@ -23,7 +21,9 @@
     <img src="<%= book.cover_url %>" alt="Book Cover" width="150" />
     <% } else { %>
     <p>No Cover Available</p>
-    <% } %> <%# Edit Form %>
+    <% } %>
+
+    <!-- Edit Form -->
     <form
       id="editForm<%= book.id %>"
       action="/update-book/<%= book.id %>"
@@ -55,7 +55,9 @@
       <img class="icon" src="/assets/icons/pencil-solid.svg" alt="Edit" />
     </button>
   </div>
-  <% } %> <%# Add New Book Form %>
+  <% } %>
+
+  <!-- Add New Book -->
   <form action="/add-book" method="POST" class="add-form">
     <label for="title">Book Title:</label>
     <input type="text" id="title" name="title" required />

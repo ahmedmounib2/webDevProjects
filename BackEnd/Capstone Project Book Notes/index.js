@@ -49,6 +49,23 @@ app.post("/add-book", async (req, res) => {
   }
 });
 
+app.post("/update-book/:id", async (req, res) => {
+  const { id } = req.params;
+  const { title, author, review, review_text } = req.body;
+
+  try {
+    await db.query(
+      "UPDATE books SET title = $1, author = $2, review = $3, review_text = $4 WHERE id = $5",
+      [title, author, review, review_text, id]
+    );
+
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error updating book:", error);
+    res.redirect("/");
+  }
+});
+
 app.post("/delete-book", async (req, res) => {
   const { id } = req.body;
 
