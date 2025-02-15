@@ -14,7 +14,9 @@ app.use(express.static("public"));
 //var urlSearchBook = "https://openlibrary.org/search.json?q='";
 
 app.get("/", async (req, res) => {
-  const result = await db.query("SELECT * FROM books");
+  const result = await db.query(
+    "SELECT * FROM books ORDER BY review DESC, read_date DESC"
+  );
   let books = [];
   result.rows.forEach((book) => {
     books.push(book);
@@ -23,7 +25,7 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/add-book", async (req, res) => {
-  const { title, author, review, review_text } = req.body;
+  const { title, author, review, review_text, read_date } = req.body;
   const apiUrl = `https://openlibrary.org/search.json?q=${encodeURIComponent(
     title
   )}`;
@@ -34,12 +36,12 @@ app.post("/add-book", async (req, res) => {
 
     let coverUrl = null;
     if (books.length > 0 && books[0].cover_edition_key) {
-      coverUrl = `https://covers.openlibrary.org/b/olid/${books[0].cover_edition_key}-L.jpg`;
+      coverUrl = `https://covers.openlibrary.org/b/olid/${books[0].cover_edition_key}-M.jpg`;
     }
 
     await db.query(
-      "INSERT INTO books (title, author, review, review_text, cover_url) VALUES ($1, $2, $3, $4, $5)",
-      [title, author, review, review_text, coverUrl]
+      "INSERT INTO books (title, author, review, review_text, cover_url, read_date) VALUES ($1, $2, $3, $4, $5, $6)",
+      [title, author, review, review_text, coverUrl, read_date || null]
     );
 
     res.redirect("/");
@@ -51,12 +53,12 @@ app.post("/add-book", async (req, res) => {
 
 app.post("/update-book/:id", async (req, res) => {
   const { id } = req.params;
-  const { title, author, review, review_text } = req.body;
+  const { title, author, review, review_text, read_date } = req.body;
 
   try {
     await db.query(
-      "UPDATE books SET title = $1, author = $2, review = $3, review_text = $4 WHERE id = $5",
-      [title, author, review, review_text, id]
+      "UPDATE books SET title = $1, author = $2, review = $3, review_text = $4, read_date = $5 WHERE id = $6",
+      [title, author, review, review_text, read_date || null, id]
     );
 
     res.redirect("/");

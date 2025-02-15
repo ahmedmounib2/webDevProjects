@@ -1,61 +1,76 @@
 <%- include("./partials/header.ejs") %>
 
-<div class="box">
-  <% for(let book of books){ %>
-  <div class="item">
-    <%# delete form %>
-    <form action="/delete-book" method="post">
-      <input
-        type="checkbox"
-        onchange="this.form.submit()"
-        name="id"
-        onclick="return confirm('Are you sure you want to delete this book?');"
-        value="<%= book.id %>"
-      />
-    </form>
+<div class="container"><h1>John Smith</h1>
+  <br><br>
 
-    <%# Display Books %>
-    <p id="title<%= book.id %>"><%= book.title %></p>
-    <p>Review: <%= book.review %>/10</p>
-    <p><%= book.review_text %></p>
+  <h2>Books I've Read</h2>
+  <strong><p>Tiny summary but detailed notes for each. This page will constantly update as I read more, so bookmark it if you want to check back in a few months.</p></strong>
+  </div>
+  <br><br>
+<section id="allBooks">
+  <div class="container">
+    <% for(let book of books){ %>
+    <div class="container">
 
-    <% if (book.cover_url) { %>
-    <img src="<%= book.cover_url %>" alt="Book Cover" width="150" />
-    <% } else { %>
-    <p>No Cover Available</p>
-    <% } %> <%# Edit Form %>
-    <form
-      id="editForm<%= book.id %>"
-      action="/update-book/<%= book.id %>"
-      method="POST"
-      class="hidden"
-    >
-      <input type="text" name="title" value="<%= book.title %>" required />
-      <input type="text" name="author" value="<%= book.author %>" required />
-      <input
-        type="number"
-        name="review"
-        min="1"
-        max="10"
-        value="<%= book.review %>"
-        required
-      />
-      <textarea name="review_text" required><%= book.review_text %></textarea>
+      <% if (book.cover_url) { %>
+        <img src="<%= book.cover_url %>" alt="Book Cover" class="book-cover">
 
-      <button type="submit" class="done">
-        <img class="icon" src="/assets/icons/check-solid.svg" alt="Save" />
-      </button>
-    </form>
+      <% } %>
+      <div id="book-info"><h3 id="title<%= book.id %>"><%= book.title %> - BY <%= book.author %></h3></div>
 
-    <button
+
+
+      <small>
+        <p>
+          Date Read: <%= book.read_date ? new Date(book.read_date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) : "Not specified" %> How strongly I recommend it: <%= book.review %>/10%>
+        </p>
+      </small>
+      <%# Display Book Details %>
+
+      <button
       id="editBtn<%= book.id %>"
       class="edit"
       onclick="showEditForm('<%= book.id %>')"
     >
-      <img class="icon" src="/assets/icons/pencil-solid.svg" alt="Edit" />
+      <img class="icon" id="edit-icon" src="/assets/icons/pencil-solid.svg" alt="Edit" />
     </button>
+
+
+      <div class="book-container">
+
+        <p class="review-text"><%= book.review_text %></p>
+      </div>
+
+       <%# Edit Form (Initially Hidden) %>
+       <form id="editForm<%= book.id %>" action="/update-book/<%= book.id %>" method="POST" class="hidden">
+        <input type="text" name="title" value="<%= book.title %>" required />
+        <input type="text" name="author" value="<%= book.author %>" required />
+        <input type="number" name="review" min="1" max="10" value="<%= book.review %>" required />
+        <textarea name="review_text" required><%= book.review_text %></textarea>
+        <label for="read_date">Date Read:</label>
+        <input type="date" name="read_date" value="<%= book.read_date %>" />
+
+        <button type="submit" class="done">
+          <img class="icon" src="/assets/icons/check-solid.svg" alt="Save" />
+        </button>
+
+        <%# Delete Button (Hidden Inside Edit Form) %>
+        <button type="submit" formaction="/delete-book" class="delete-btn"
+        onclick="return confirm('Are you sure you want to delete this book?');">
+        <input type="hidden" name="id" value="<%= book.id %>" />
+        <img class="icon" src="/assets/icons/trash3.svg" alt="Delete" />
+      </button>
+
+      </form>
+    </div>
+    <% } %>
   </div>
-  <% } %> <%# Add New Book Form %>
+</section>
+
+
+
+<div class="container">
+  <h4>Add Another Book</h4>
   <form action="/add-book" method="POST" class="add-form">
     <label for="title">Book Title:</label>
     <input type="text" id="title" name="title" required />
@@ -66,11 +81,18 @@
     <label for="review">Review (1-10):</label>
     <input type="number" id="review" name="review" min="1" max="10" required />
 
-    <label for="review_text">Why do you like this book?</label>
+    <label for="review_text">Notes?</label>
     <textarea id="review_text" name="review_text" rows="4"></textarea>
 
-    <button type="submit">Add Book</button>
+    <label for="read_date">Date Read:</label>
+    <input type="date" id="read_date" name="read_date" />
+
+    <button type="submit" class="addBook-btn">Add Book</button>
   </form>
+</div>
+
+
+
 </div>
 
 <script>

@@ -1,14 +1,14 @@
 /* General Styles */
 body {
   font-family: "Arial", sans-serif;
-  background-color: #f4f4f4;
+  background-color: #0e0303;
   margin: 0;
   padding: 0;
 }
 
 /* Container */
-.box {
-  max-width: 800px;
+.container {
+  max-width: 1400px;
   margin: 20px auto;
   background: #fff;
   padding: 20px;
@@ -16,6 +16,10 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+h3 {
+  line-height: 1em;
+  text-decoration: underline;
+}
 /* Book Item */
 .item {
   display: flex;
@@ -27,39 +31,48 @@ body {
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
-
-/* Book Title & Review */
-.item p {
-  margin: 5px 0;
-  font-size: 16px;
-  font-weight: bold;
+.book-container {
+  display: block;
+  width: fit-content;
 }
 
 /* Book Cover */
-.item img {
-  border-radius: 5px;
-}
 
 /* Edit & Delete Buttons */
 .edit,
-.done {
+.done,
+.delete-btn {
   background: transparent;
   border: none;
   cursor: pointer;
   transition: transform 0.2s;
 }
 
+.book-cover {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
 .edit:hover,
 .done:hover {
   transform: scale(1.1);
 }
-
+#book-info {
+  align-items: center;
+}
+#edit-icon {
+  align-items: center;
+}
 /* SVG Icons */
 .icon {
   width: 20px;
   height: 20px;
 }
 
+.edit-icon {
+  margin-left: 200px;
+}
 /* Form Styling */
 form {
   display: flex;
@@ -73,6 +86,14 @@ textarea {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+.review-text {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
 }
 
 /* Add Book Form */

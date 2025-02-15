@@ -1,0 +1,68 @@
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd (main)
+$ mkdir 'Capstone Project Book Notes'
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd (main)
+$ cd 'c:/Users/Admin/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes'
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$ mkdir public
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$ mkdir views
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$ npm init -y
+Wrote to C:\Users\Admin\OneDrive\Desktop\WebDevelopmentProjects\BackEnd\Capstone Project Book Notes\package.json:
+
+{
+  "name": "capstone-project-book-notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$ cd views/
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes/views (main)
+$ mkdir partials
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes/views (main)
+$ cd ..
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$ cd public/
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes/public (main)
+$ mkdir assets
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes/public (main)
+$ mkdir styles
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes/public (main)
+$ cd ..
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$ touch index.js views/partials/footer.ejs views/partials/header.ejs styles/main.css
+touch: cannot touch 'styles/main.css': No such file or directory
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$ touch index.js views/partials/footer.ejs views/partials/header.ejs views/styles/main.css
+touch: cannot touch 'views/styles/main.css': No such file or directory
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$ touch index.js views/partials/footer.ejs views/partials/header.ejs public/styles/main.css
+
+Admin@Ahmed-Laptop MINGW64 ~/OneDrive/Desktop/WebDevelopmentProjects/BackEnd/Capstone Project Book Notes (main)
+$

@@ -10,3 +10,5 @@ CREATE TABLE books (
 INSERT INTO books (title, author, review) VALUES ('The Alchemist', 'Paulo Coelho', 9);
 
 ALTER TABLE books ADD COLUMN review_text TEXT;
+
+ALTER TABLE books ADD COLUMN read_date DATE;
