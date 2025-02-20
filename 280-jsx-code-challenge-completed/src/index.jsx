@@ -7,7 +7,7 @@ ReactDOM.render(
     <ul>
       <li>Fish</li>
       <li>Pizza</li>
-      <li>Burger</li>
+      <li>Jamon</li>
     </ul>
   </div>,
   document.getElementById("root")
