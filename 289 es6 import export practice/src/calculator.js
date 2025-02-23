@@ -15,8 +15,9 @@ function divide(n1, n2) {
 }
 
 //soln 1
+/*
 export default add;
-export { multiply, subtract, divide };
+export { multiply, subtract, divide };*/
 
 //soln2
-//export { add, multiply, subtract, divide };
+export { add, multiply, subtract, divide };
