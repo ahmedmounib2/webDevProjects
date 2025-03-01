@@ -38,36 +38,56 @@ import ReactDOM from "react-dom";
 import cars from "./practice";
 
 // console.log(cars);
+// const [honda, tesla] = cars;
+
+// const {
+//   model: hondaModel,
+//   coloursByPopularity: [hondaTopColor, hondaSecondColor],
+//   speedStats: { topSpeed: hondaTopSpeed, zeroToSixty: hondaZeroToSixty },
+// } = honda;
+
+// const {
+//   model: teslaModel,
+//   coloursByPopularity: [teslaTopColor, teslaSecondColor],
+//   speedStats: { topSpeed: teslaTopSpeed, zeroToSixty: teslaZeroToSixty },
+// } = tesla;
+
+// console.log(hondaZeroToSixty);
+
+// CHALLENGE: uncomment the code below and see the car stats rendered
+
 const [honda, tesla] = cars;
 
 const {
-  model: hondaModel,
-  coloursByPopularity: [hondaTopColor, hondaSecondColor],
-  speedStats: { topSpeed: hondaTopSpeed, zeroToSixty: hondaZeroToSixty },
+  speedStats: { topSpeed: hondaTopSpeed },
 } = honda;
-
 const {
-  model: teslaModel,
-  coloursByPopularity: [teslaTopColor, teslaSecondColor],
-  speedStats: { topSpeed: teslaTopSpeed, zeroToSixty: teslaZeroToSixty },
+  speedStats: { topSpeed: teslaTopSpeed },
 } = tesla;
 
-console.log(hondaZeroToSixty);
+const {
+  coloursByPopularity: [hondaTopColour],
+} = honda;
+const {
+  coloursByPopularity: [teslaTopColour],
+} = tesla;
+
 ReactDOM.render(
   <table>
     <tr>
       <th>Brand</th>
       <th>Top Speed</th>
+      <th>Top Colour</th>
     </tr>
     <tr>
-      <td>{teslaModel}</td>
+      <td>{tesla.model}</td>
       <td>{teslaTopSpeed}</td>
-      <td>{teslaTopColor}</td>
+      <td>{teslaTopColour}</td>
     </tr>
     <tr>
-      <td>{hondaModel}</td>
+      <td>{honda.model}</td>
       <td>{hondaTopSpeed}</td>
-      <td>{hondaTopColor}</td>
+      <td>{hondaTopColour}</td>
     </tr>
   </table>,
   document.getElementById("root")
